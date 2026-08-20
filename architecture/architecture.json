@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Subscription Guardian · 本地 AI 订阅管家架构",
+    "quality_profile": "showcase",
+    "viewBox": [1500, 860]
+  },
+  "layout": { "mode": "grid", "cols": 8, "cellW": 205, "cellH": 128, "gapX": 16, "gapY": 16, "origin": [20, 24] },
+  "components": [
+    { "id": "user", "type": "frontend", "label": "用户", "sublabel": "浏览器 / 终端", "row": 0, "col": 0 },
+    { "id": "ui", "type": "frontend", "label": "网页 UI", "sublabel": "六面板页面", "row": 0, "col": 1 },
+    { "id": "cli", "type": "frontend", "label": "终端 CLI", "sublabel": "REPL / 报告", "row": 1, "col": 1 },
+    { "id": "api", "type": "backend", "label": "后端 server", "sublabel": "node:http · :3000/:3100", "row": 0, "col": 2 },
+    { "id": "agent", "type": "backend", "label": "Strands Agent", "sublabel": "core.mjs 编排", "row": 0, "col": 3 },
+    { "id": "model", "type": "external", "label": "本地模型 Ollama", "sublabel": "Qwen2.5:3b · 离线", "row": 1, "col": 3 },
+    { "id": "tools", "type": "backend", "label": "工具集", "sublabel": "FunctionTool ×5", "row": 0, "col": 4 },
+    { "id": "analyze", "type": "backend", "label": "分析 + 订阅数据", "sublabel": "总费 / 重叠 / 涨价", "row": 1, "col": 4 },
+    { "id": "rec", "type": "backend", "label": "按爱好推荐", "sublabel": "内容库打分", "row": 1, "col": 5 },
+    { "id": "research", "type": "backend", "label": "真联网调研", "sublabel": "research.mjs", "row": 1, "col": 6 },
+    { "id": "dsp", "type": "external", "label": "平台公开搜索", "sublabel": "网易云 / B站 / QQ音乐", "row": 2, "col": 6 }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "本地全栈 · 免费离线 · 数据不出本机", "wraps": ["api", "agent", "model", "tools", "analyze", "rec", "research"], "pad": 20 }
+  ],
+  "connections": [
+    { "from": "user", "to": "ui", "label": "打开网页" },
+    { "from": "user", "to": "cli", "label": "输入命令" },
+    { "from": "ui", "to": "api", "label": "浏览器请求" },
+    { "from": "cli", "to": "api", "label": "调用" },
+    { "from": "api", "to": "agent", "label": "agent.invoke" },
+    { "from": "agent", "to": "model", "label": "LLM 推理", "labelAt": [743, 98] },
+    { "from": "agent", "to": "tools", "label": "识别工具" },
+    { "from": "tools", "to": "analyze", "label": "取财务事实", "labelAt": [964, 98] },
+    { "from": "tools", "to": "rec", "label": "按兴趣评分" },
+    { "from": "tools", "to": "research", "label": "research_content" },
+    { "from": "research", "to": "dsp", "label": "公开搜索接口", "labelAt": [1406, 242] }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "三层解耦", "items": ["人机界面：网页 UI + 终端 CLI", "Strands Agent 编排层", "确定性计算层：不用模型算数"] },
+    { "dot": "emerald", "title": "确定性压幻觉", "items": ["总费 / 可省 / 续费全由代码计算", "LLM 只负责组织语言", "复核员对照事实摘要纠错"] },
+    { "dot": "amber", "title": "本地 & 真联网", "items": ["Ollama + Qwen2.5 离线本地", "网易云 / QQ音乐 / B站 公开接口", "数据不出本机 · 无需 API key"] }
+  ]
+}
