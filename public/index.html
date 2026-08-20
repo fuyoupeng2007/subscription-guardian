@@ -231,8 +231,12 @@
     const msg=$('#chatIn').value.trim(); if(!msg)return;
     const o=$('#chatOut');
     o.className='out spin'; o.textContent='🧠 本地模型思考中，约需 10~20 秒，请稍候…';
-    const d=await post('/api/chat',{message:msg});
-    o.className='out'; o.textContent=`（耗时 ${d.seconds} 秒，来自本地 Qwen）\n\n`+d.text;
+    try{
+      const d=await post('/api/chat',{message:msg});
+      o.className='out';
+      if(d && d.error){ o.textContent='⚠️ '+d.error+'\n'+d.hint; }
+      else { o.textContent=`（耗时 ${d.seconds} 秒，来自本地 Qwen）\n\n`+d.text; }
+    }catch(e){ o.className='out'; o.textContent='⚠️ 连接失败：'+e.message; }
   }
 
   // 提醒

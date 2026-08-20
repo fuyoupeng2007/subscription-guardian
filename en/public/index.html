@@ -231,8 +231,12 @@
     const msg=$('#chatIn').value.trim(); if(!msg)return;
     const o=$('#chatOut');
     o.className='out spin'; o.textContent='🧠 Local model thinking — this takes about 10–20 seconds, please wait…';
-    const d=await post('/api/chat',{message:msg});
-    o.className='out'; o.textContent=`(${d.seconds}s, from local Qwen)\n\n`+d.text;
+    try{
+      const d=await post('/api/chat',{message:msg});
+      o.className='out';
+      if(d && d.error){ o.textContent='⚠️ '+d.error+'\n'+d.hint; }
+      else { o.textContent=`(${d.seconds}s, from local Qwen)\n\n`+d.text; }
+    }catch(e){ o.className='out'; o.textContent='⚠️ Connection failed: '+e.message; }
   }
 
   // 提醒

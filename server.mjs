@@ -41,46 +41,60 @@ const server = http.createServer(async (req, res) => {
   }
 
   // ============ JSON API ============
-  if (req.method === 'POST' && url === '/api/status') {
-    return send(res, 200, {
-      dataSource,
-      totalCount: facts.totalCount,
-      totalMonthly: facts.totalMonthly,
-      totalYearly: facts.totalYearly,
-      totalSavableMonthly: facts.totalSavableMonthly,
-      totalSavableYearly: facts.totalSavableYearly,
-      biggestWin: facts.biggestWin || null,
-      categorySummary: facts.categorySummary || [],
-      renewals: facts.renewals,
-      overlaps: facts.overlaps,
-      priceIncreases: facts.priceIncreases,
-    });
-  }
+  try {
+    if (req.method === 'POST' && url === '/api/status') {
+      return send(res, 200, {
+        dataSource,
+        totalCount: facts.totalCount,
+        totalMonthly: facts.totalMonthly,
+        totalYearly: facts.totalYearly,
+        totalSavableMonthly: facts.totalSavableMonthly,
+        totalSavableYearly: facts.totalSavableYearly,
+        biggestWin: facts.biggestWin || null,
+        categorySummary: facts.categorySummary || [],
+        renewals: facts.renewals,
+        overlaps: facts.overlaps,
+        priceIncreases: facts.priceIncreases,
+      });
+    }
 
-  if (req.method === 'POST' && url === '/api/report') {
-    return send(res, 200, { markdown: renderMarkdown(facts), html: renderHtml(facts) });
-  }
+    if (req.method === 'POST' && url === '/api/report') {
+      return send(res, 200, { markdown: renderMarkdown(facts), html: renderHtml(facts) });
+    }
 
-  if (req.method === 'POST' && url === '/api/research') {
-    const { query } = await readBody(req);
-    const r = await research(String(query || '').trim());
-    return send(res, 200, { text: renderResearch(r) });
-  }
+    if (req.method === 'POST' && url === '/api/research') {
+      const { query } = await readBody(req);
+      const r = await research(String(query || '').trim());
+      return send(res, 200, { text: renderResearch(r) });
+    }
 
-  if (req.method === 'POST' && url === '/api/recommend') {
-    const { interests, budget } = await readBody(req);
-    const list = Array.isArray(interests) ? interests.filter(Boolean) : [];
-    return send(res, 200, { text: buildRecommendation(list, Number(budget) || 50) });
-  }
+    if (req.method === 'POST' && url === '/api/recommend') {
+      const { interests, budget } = await readBody(req);
+      const list = Array.isArray(interests) ? interests.filter(Boolean) : [];
+      return send(res, 200, { text: buildRecommendation(list, Number(budget) || 50) });
+    }
 
-  if (req.method === 'POST' && url === '/api/chat') {
-    const { message } = await readBody(req);
-    const t0 = Date.now();
-    const result = await agent.invoke(String(message || ''));
-    return send(res, 200, { text: result.toString(), seconds: ((Date.now() - t0) / 1000).toFixed(1) });
-  }
+    if (req.method === 'POST' && url === '/api/chat') {
+      const { message } = await readBody(req);
+      const msg = String(message || '').trim();
+      if (!msg) return send(res, 400, { error: 'Empty message' });
+      const t0 = Date.now();
+      try {
+        const result = await agent.invoke(msg);
+        return send(res, 200, { text: result.toString(), seconds: ((Date.now() - t0) / 1000).toFixed(1) });
+      } catch (err) {
+        return send(res, 503, {
+          error: 'ModelUnavailable',
+          detail: String(err?.message || err),
+          hint: '本地大模型(Ollama)没有响应。请先运行「ollama serve」把本地AI打开，再回来点发送；期间其它功能不受影响。',
+        });
+      }
+    }
 
-  send(res, 404, { error: 'Not found', hint: '/ for UI, POST /api/* for data' });
+    send(res, 404, { error: 'Not found', hint: '/ for UI, POST /api/* for data' });
+  } catch (e) {
+    return send(res, 500, { error: 'Server error', detail: String(e?.message || e) });
+  }
 });
 
 server.listen(PORT, '127.0.0.1', () => {
