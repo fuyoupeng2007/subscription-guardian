@@ -1,8 +1,21 @@
 # 🧠 订阅管家（Subscription Guardian）
 
-一个用 **Strands Agents SDK** 构建的 AI 智能体：帮你管理付费订阅/会员，找出重叠订阅、涨价、即将续费的项目，并给出「该取消什么、每月能省多少钱」的中文建议。
+[![Strands](https://img.shields.io/badge/Strands%20Agents%20SDK-v1.13-blue)](#)
+[![Local](https://img.shields.io/badge/Model-Ollama%20Qwen2.5-orange)](#)
+[![Offline&Free](https://img.shields.io/badge/Offline%20%26%20Free-no%20API%20key-green)](#)
+[![Bilingual](https://img.shields.io/badge/Languages-ZH%20%2B%20EN-8b5cf6)](#)
 
-> 参赛项目：**Agents for Humans Hackathon**（Amazon / AWS 主办）
+一个用 **Strands Agents SDK** 构建的 AI 智能体：帮你管理付费订阅/会员，找出重叠订阅、涨价、即将续费的项目，并给出「该取消什么、每月能省多少钱」的建议。它还**真联网**查「某首歌/剧在哪个会员能听」。
+
+> 参赛项目：**[Agents for Humans Hackathon](https://agentsforhumans.devpost.com/)**（Amazon / AWS 主办）
+> 支持 **中文版 + 英文版**两套完全独立、并行部署运行。
+
+## 🚀 快速开始
+```bash
+npm install          # 首次：装 Strands SDK + openai
+node server.mjs      # 打开漂亮网页界面 http://localhost:3000
+# 或：node index.mjs（终端交互）；node index.mjs --research "七里香"（真联网调研）
+```
 
 ## 🌐 中英文双版（各自独立、并行运行）
 
