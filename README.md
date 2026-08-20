@@ -141,3 +141,9 @@ subscription-agent/
 编辑 `data/subscriptions.json`，把你的真实订阅（名称、分类 `category`、月费 `monthlyPrice`、原价 `originalPrice`、续费日期 `renewOn`）填进去，重跑即可。
 
 条目字段：`name`、`category`（视频/音乐/云存储/购物/生活…）、`monthlyPrice`、`originalPrice`、`renewOn`（YYYY-MM-DD）、`autoRenew`、`note`。
+
+## 📜 许可证 & 代码公开
+
+- **开源许可证**：[MIT](./LICENSE)（可自由使用、修改、分发，含商用）。
+- 仓库为**公开**：https://github.com/fuyoupeng2007/subscription-guardian
+- 本仓库含全部源代码 + 运行/安装说明（见上方「快速开始」与各版本 README），满足黑客松对"公开源码仓库"的提交要求。
