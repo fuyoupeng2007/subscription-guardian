@@ -1,0 +1,14 @@
+{
+  "_说明": "把这份文件改名成 user-subscriptions.json 并填你真实订阅后，程序会自动用它（样例为演示数据）。以下字段必填：name/category/monthlyPrice/originalPrice/renewOn/autoRenew；note 可选。",
+  "subscriptions": [
+    {
+      "name": "示例：QQ音乐超级会员",
+      "category": "音乐",
+      "monthlyPrice": 18,
+      "originalPrice": 18,
+      "renewOn": "2026-08-30",
+      "autoRenew": true,
+      "note": "这里改成你真正开通的会员"
+    }
+  ]
+}

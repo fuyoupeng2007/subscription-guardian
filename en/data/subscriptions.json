@@ -1,0 +1,106 @@
+{
+  "currency": "USD",
+  "generatedAt": "2026-08-19",
+  "subscriptions": [
+    {
+      "name": "Netflix Standard",
+      "category": "video",
+      "monthlyPrice": 15,
+      "originalPrice": 15,
+      "renewOn": "2026-09-05",
+      "autoRenew": true,
+      "billingCycle": "monthly",
+      "note": ""
+    },
+    {
+      "name": "Disney+",
+      "category": "video",
+      "monthlyPrice": 14,
+      "originalPrice": 14,
+      "renewOn": "2026-09-12",
+      "autoRenew": true,
+      "billingCycle": "monthly",
+      "note": ""
+    },
+    {
+      "name": "YouTube Premium",
+      "category": "video",
+      "monthlyPrice": 14,
+      "originalPrice": 12,
+      "renewOn": "2026-09-01",
+      "autoRenew": true,
+      "billingCycle": "monthly",
+      "note": "price went up from 12"
+    },
+    {
+      "name": "Amazon Prime",
+      "category": "video",
+      "monthlyPrice": 9,
+      "originalPrice": 9,
+      "renewOn": "2027-01-01",
+      "autoRenew": true,
+      "billingCycle": "monthly",
+      "note": ""
+    },
+    {
+      "name": "Spotify Premium",
+      "category": "music",
+      "monthlyPrice": 11,
+      "originalPrice": 11,
+      "renewOn": "2026-09-08",
+      "autoRenew": true,
+      "billingCycle": "monthly",
+      "note": ""
+    },
+    {
+      "name": "Apple Music",
+      "category": "music",
+      "monthlyPrice": 11,
+      "originalPrice": 11,
+      "renewOn": "2026-09-15",
+      "autoRenew": true,
+      "billingCycle": "monthly",
+      "note": ""
+    },
+    {
+      "name": "iCloud 200GB",
+      "category": "storage",
+      "monthlyPrice": 3,
+      "originalPrice": 3,
+      "renewOn": "2026-09-20",
+      "autoRenew": true,
+      "billingCycle": "monthly",
+      "note": ""
+    },
+    {
+      "name": "Google One 200GB",
+      "category": "storage",
+      "monthlyPrice": 2,
+      "originalPrice": 2,
+      "renewOn": "2026-08-28",
+      "autoRenew": true,
+      "billingCycle": "monthly",
+      "note": ""
+    },
+    {
+      "name": "Adobe Creative Cloud",
+      "category": "software",
+      "monthlyPrice": 39,
+      "originalPrice": 39,
+      "renewOn": "2026-09-30",
+      "autoRenew": true,
+      "billingCycle": "monthly",
+      "note": ""
+    },
+    {
+      "name": "Planet Fitness",
+      "category": "fitness",
+      "monthlyPrice": 10,
+      "originalPrice": 10,
+      "renewOn": "2026-09-22",
+      "autoRenew": true,
+      "billingCycle": "monthly",
+      "note": ""
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "currency": "CNY",
+  "generatedAt": "2026-08-19",
+  "subscriptions": [
+    {
+      "name": "爱奇艺黄金VIP",
+      "category": "视频",
+      "monthlyPrice": 25,
+      "billingCycle": "月付",
+      "autoRenew": true,
+      "renewOn": "2026-09-15",
+      "originalPrice": 25,
+      "note": "长期自动续费"
+    },
+    {
+      "name": "腾讯视频VIP",
+      "category": "视频",
+      "monthlyPrice": 30,
+      "billingCycle": "月付",
+      "autoRenew": true,
+      "renewOn": "2026-09-20",
+      "originalPrice": 30,
+      "note": ""
+    },
+    {
+      "name": "芒果TV会员",
+      "category": "视频",
+      "monthlyPrice": 22,
+      "billingCycle": "月付",
+      "autoRenew": true,
+      "renewOn": "2026-09-18",
+      "originalPrice": 15,
+      "note": "今年刚涨价，从 15 涨到 22"
+    },
+    {
+      "name": "网易云音乐黑胶VIP",
+      "category": "音乐",
+      "monthlyPrice": 15,
+      "billingCycle": "月付",
+      "autoRenew": true,
+      "renewOn": "2026-09-01",
+      "originalPrice": 15,
+      "note": ""
+    },
+    {
+      "name": "QQ音乐豪华绿钻",
+      "category": "音乐",
+      "monthlyPrice": 18,
+      "billingCycle": "月付",
+      "autoRenew": true,
+      "renewOn": "2026-09-05",
+      "originalPrice": 18,
+      "note": "平时很少用"
+    },
+    {
+      "name": "美团外卖神会员",
+      "category": "生活",
+      "monthlyPrice": 15,
+      "billingCycle": "月付",
+      "autoRenew": true,
+      "renewOn": "2026-08-28",
+      "originalPrice": 15,
+      "note": "经常点外卖，常用"
+    },
+    {
+      "name": "iCloud 200GB",
+      "category": "云存储",
+      "monthlyPrice": 21,
+      "billingCycle": "月付",
+      "autoRenew": true,
+      "renewOn": "2026-09-02",
+      "originalPrice": 21,
+      "note": ""
+    },
+    {
+      "name": "百度网盘超级会员",
+      "category": "云存储",
+      "monthlyPrice": 30,
+      "billingCycle": "月付",
+      "autoRenew": true,
+      "renewOn": "2026-09-10",
+      "originalPrice": 30,
+      "note": "和 iCloud 功能重叠"
+    },
+    {
+      "name": "京东PLUS",
+      "category": "购物",
+      "monthlyPrice": 8,
+      "billingCycle": "年付(约¥99/年)",
+      "autoRenew": true,
+      "renewOn": "2027-01-01",
+      "originalPrice": 8,
+      "note": "年付"
+    },
+    {
+      "name": "淘宝88VIP",
+      "category": "购物",
+      "monthlyPrice": 7,
+      "billingCycle": "年付(约¥88/年)",
+      "autoRenew": true,
+      "renewOn": "2026-11-11",
+      "originalPrice": 7,
+      "note": "年付，含优酷会员权益"
+    }
+  ]
+}

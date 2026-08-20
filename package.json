@@ -1,0 +1,21 @@
+{
+  "name": "subscription-agent",
+  "version": "1.0.0",
+  "description": "订阅管家 · Subscription Guardian — Strands Agents SDK + 本地 Qwen 的订阅管理智能体",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "ui": "node server.mjs",
+    "report": "node index.mjs --report",
+    "multi": "node index.mjs --multi",
+    "recommend": "node index.mjs --recommend",
+    "research": "node index.mjs --research"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@strands-agents/sdk": "^1.13.0",
+    "openai": "^6.49.0"
+  }
+}
